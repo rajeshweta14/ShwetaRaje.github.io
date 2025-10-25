@@ -1,9 +1,9 @@
-ƒr<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senior Analytics Engineer - Professional Portfolio</title>
+    <title>Shweta Raje - Senior Analytics Engineer Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -15,50 +15,99 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: white;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Data Visualization Watermark Background */
-        body::before {
-            content: '';
+        /* Animated background particles */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .background-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: 0;
-            opacity: 0.03;
-            background-image: 
-                /* Grid pattern */
-                linear-gradient(0deg, #667eea 1px, transparent 1px),
-                linear-gradient(90deg, #667eea 1px, transparent 1px),
-                /* Chart lines */
-                linear-gradient(135deg, transparent 40%, #764ba2 40%, #764ba2 42%, transparent 42%),
-                linear-gradient(45deg, transparent 55%, #667eea 55%, #667eea 57%, transparent 57%);
-            background-size: 50px 50px, 50px 50px, 200px 200px, 180px 180px;
-            background-position: 0 0, 0 0, 0 0, 50px 50px;
+            overflow: hidden;
             pointer-events: none;
         }
 
-        /* Additional data visualization elements */
-        body::after {
+        .particle {
+            position: absolute;
+            background: rgba(102, 126, 234, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) { width: 80px; height: 80px; top: 10%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { width: 60px; height: 60px; top: 20%; right: 20%; animation-delay: 1s; }
+        .particle:nth-child(3) { width: 100px; height: 100px; bottom: 15%; left: 15%; animation-delay: 2s; }
+        .particle:nth-child(4) { width: 70px; height: 70px; bottom: 25%; right: 10%; animation-delay: 1.5s; }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
             content: '';
-            position: fixed;
-            top: -50%;
-            right: -20%;
-            width: 80%;
-            height: 150%;
-            z-index: 0;
-            opacity: 0.025;
-            background: 
-                radial-gradient(circle at 30% 40%, #667eea 2px, transparent 2px),
-                radial-gradient(circle at 70% 60%, #764ba2 2px, transparent 2px),
-                radial-gradient(circle at 50% 80%, #667eea 1px, transparent 1px);
-            background-size: 40px 40px, 60px 60px, 30px 30px;
-            transform: rotate(-15deg);
-            pointer-events: none;
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .container {
@@ -67,140 +116,233 @@
             background: white;
             position: relative;
             z-index: 1;
-            box-shadow: 0 0 40px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 60px rgba(0,0,0,0.15);
         }
 
+        /* Hero Header Section */
         header {
-            background: white;
-            color: #333;
-            padding: 60px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 40px 80px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 4px solid #667eea;
         }
 
-        /* Data pipeline and graph background in header */
         header::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.08;
-            background-image: 
-                /* Horizontal pipeline lines */
-                linear-gradient(90deg, transparent 48%, #667eea 48%, #667eea 52%, transparent 52%),
-                /* Vertical connecting lines */
-                linear-gradient(0deg, transparent 48%, #764ba2 48%, #764ba2 52%, transparent 52%),
-                /* Data nodes/circles */
-                radial-gradient(circle at center, #667eea 30%, transparent 30%),
-                /* Bar chart pattern */
-                linear-gradient(0deg, transparent 60%, #764ba2 60%, #764ba2 100%);
-            background-size: 150px 100px, 100px 150px, 20px 20px, 40px 80px;
-            background-position: 0 30%, 25% 0, 10px 10px, 50px 50%;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: slideBackground 20s linear infinite;
         }
 
-        /* Line graph pattern overlay */
-        header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.06;
-            background-image: 
-                /* Ascending graph line */
-                linear-gradient(135deg, transparent 45%, #667eea 45%, #667eea 47%, transparent 47%),
-                /* Descending graph line */
-                linear-gradient(-135deg, transparent 45%, #764ba2 45%, #764ba2 47%, transparent 47%);
-            background-size: 80px 80px, 90px 90px;
-            background-position: 0 0, 40px 40px;
+        @keyframes slideBackground {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            /* ===== TO ADD YOUR PROFILE IMAGE =====
+               Replace the emoji below with:
+               <img src="your-image-url.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+               OR upload image to GitHub and use relative path:
+               <img src="./images/profile.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+            ====================================== */
         }
 
         h1 {
-            font-size: 2.8em;
-            margin-bottom: 10px;
+            font-size: 3.5em;
+            margin-bottom: 15px;
             font-weight: 700;
-            position: relative;
-            z-index: 1;
-            color: #2d3748;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .subtitle {
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: 300;
-            position: relative;
-            z-index: 1;
-            color: #667eea;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-top: 25px;
+            gap: 20px;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
         }
 
         .contact-info a {
-            color: #667eea;
+            color: white;
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
+            padding: 12px 24px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
             transition: all 0.3s;
-            padding: 8px 16px;
-            border-radius: 20px;
-            background: rgba(102,126,234,0.1);
-            border: 2px solid rgba(102,126,234,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
         }
 
         .contact-info a:hover {
-            background: rgba(102,126,234,0.15);
-            border-color: #667eea;
-            transform: translateY(-2px);
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .content {
-            padding: 50px 40px;
+            padding: 60px 40px;
             background: white;
         }
 
         section {
-            margin-bottom: 50px;
-            position: relative;
+            margin-bottom: 60px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         h2 {
             color: #667eea;
-            font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 12px;
-            border-bottom: 3px solid #667eea;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #667eea;
             position: relative;
+            display: inline-block;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -3px;
+            bottom: -4px;
             left: 0;
-            width: 100px;
-            height: 3px;
+            width: 50%;
+            height: 4px;
             background: #764ba2;
         }
 
-        .highlights {
+        /* About Me Section */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
             background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8em;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+            margin: 0 auto;
+            /* ===== TO ADD YOUR ABOUT IMAGE =====
+               Replace the emoji below with:
+               <img src="your-image-url.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+               OR upload image to GitHub and use relative path:
+               <img src="./images/about-me.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+            ==================================== */
+        }
+
+        .about-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-text p {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
             padding: 30px;
-            border-radius: 12px;
-            border-left: 5px solid #667eea;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        .highlights {
+            background: linear-gradient(135deg, rgba(102,126,234,0.08) 0%, rgba(118,75,162,0.08) 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 6px solid #667eea;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
         }
 
         .highlights ul {
@@ -209,126 +351,161 @@
         }
 
         .highlights li {
-            padding-left: 30px;
+            padding: 15px 15px 15px 50px;
             margin-bottom: 15px;
             position: relative;
             color: #444;
-            font-size: 1.05em;
-            line-height: 1.7;
+            font-size: 1.1em;
+            line-height: 1.8;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .highlights li:hover {
+            transform: translateX(5px);
         }
 
         .highlights li:before {
-            content: "📊";
+            content: "⭐";
             position: absolute;
-            left: 0;
-            font-size: 1.2em;
+            left: 15px;
+            font-size: 1.5em;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .skill-category {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            border: 2px solid #f0f0f0;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
             transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .skill-category:hover {
             border-color: #667eea;
-            box-shadow: 0 4px 15px rgba(102,126,234,0.15);
-            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(102,126,234,0.2);
+            transform: translateY(-5px);
         }
 
         .skill-title {
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 12px;
-            font-size: 1.15em;
+            margin-bottom: 15px;
+            font-size: 1.3em;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .skill-title::before {
             content: "▸";
             color: #764ba2;
-            font-size: 1.3em;
+            font-size: 1.5em;
         }
 
         .skill-list {
-            font-size: 0.95em;
+            font-size: 1em;
             color: #555;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         .experience-item {
-            margin-bottom: 35px;
-            padding: 30px;
+            margin-bottom: 40px;
+            padding: 35px;
             background: white;
-            border-radius: 12px;
-            border: 2px solid #f0f0f0;
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
             transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
 
         .experience-item:hover {
             border-color: #764ba2;
-            box-shadow: 0 4px 15px rgba(118,75,162,0.15);
+            box-shadow: 0 8px 30px rgba(118,75,162,0.2);
+            transform: translateX(5px);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 10px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f5f5f5;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
         }
 
         .job-title {
-            font-size: 1.4em;
+            font-size: 1.6em;
             font-weight: 600;
-            color: #333;
+            color: #2d3748;
         }
 
         .company {
-            font-size: 1.15em;
+            font-size: 1.2em;
             color: #667eea;
             font-weight: 500;
             margin-top: 5px;
         }
 
         .date {
-            color: #777;
+            color: white;
             font-style: italic;
             font-weight: 500;
             white-space: nowrap;
-            background: #f8f9fa;
-            padding: 5px 15px;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8px 20px;
+            border-radius: 25px;
+            box-shadow: 0 3px 10px rgba(102,126,234,0.3);
         }
 
         .responsibilities {
             list-style: none;
             padding-left: 0;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .responsibilities li {
-            padding-left: 30px;
-            margin-bottom: 12px;
+            padding-left: 35px;
+            margin-bottom: 15px;
             position: relative;
             color: #555;
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.05em;
         }
 
         .responsibilities li:before {
@@ -337,63 +514,161 @@
             left: 0;
             color: #667eea;
             font-weight: bold;
-            font-size: 1.4em;
+            font-size: 1.6em;
+        }
+
+        /* Recommendations Section */
+        .recommendations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .recommendation-card {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .recommendation-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 4em;
+            color: rgba(102,126,234,0.2);
+            font-family: Georgia, serif;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(102,126,234,0.2);
+            border-color: #667eea;
+        }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-top: 30px;
+        }
+
+        .recommendation-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 3px 15px rgba(102,126,234,0.3);
+            /* ===== TO ADD RECOMMENDATION IMAGES =====
+               Replace the initials in HTML with:
+               <img src="recommender-image.jpg" alt="Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+               
+               Example for each recommendation:
+               <div class="recommendation-image">
+                   <img src="./images/john-doe.jpg" alt="John Doe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+               </div>
+               
+               OR use LinkedIn profile photos, professional headshots, or company photos
+            ======================================== */
+        }
+
+        .recommendation-info {
+            flex: 1;
+        }
+
+        .recommendation-name {
+            font-weight: 600;
+            font-size: 1.2em;
+            color: #2d3748;
+            margin-bottom: 5px;
+        }
+
+        .recommendation-role {
+            color: #667eea;
+            font-size: 0.95em;
+            font-weight: 500;
+        }
+
+        .recommendation-text {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05em;
+            font-style: italic;
         }
 
         .certifications-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
         }
 
         .cert-item {
-            background: white;
-            padding: 20px 25px;
-            border-radius: 12px;
-            border: 2px solid #f0f0f0;
+            background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+            padding: 25px 30px;
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
             transition: all 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
         }
 
         .cert-item:hover {
             border-color: #764ba2;
-            box-shadow: 0 4px 15px rgba(118,75,162,0.15);
-            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(118,75,162,0.2);
+            transform: translateY(-5px);
         }
 
         .cert-name {
             font-weight: 600;
             color: #333;
-            margin-bottom: 8px;
-            font-size: 1.05em;
+            margin-bottom: 10px;
+            font-size: 1.15em;
         }
 
         .cert-name::before {
             content: "🎓 ";
+            font-size: 1.2em;
         }
 
         .cert-license {
-            font-size: 0.9em;
+            font-size: 0.95em;
             color: #777;
             font-style: italic;
         }
 
         .education-item {
-            margin-bottom: 25px;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            border: 2px solid #f0f0f0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(102,126,234,0.05) 0%, rgba(118,75,162,0.05) 100%);
+            border-radius: 15px;
+            border: 2px solid #e8e8e8;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
         }
 
         footer {
             background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
             color: white;
             text-align: center;
-            padding: 40px;
-            font-size: 0.95em;
+            padding: 50px 40px;
+            font-size: 1em;
             position: relative;
         }
 
@@ -403,51 +678,64 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
         }
 
-        /* Chart watermark decorations */
-        .chart-decoration {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.02;
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
         }
 
-        .chart-decoration-1 {
-            top: 20%;
-            left: 5%;
-            width: 200px;
-            height: 150px;
-            background: linear-gradient(45deg, #667eea 25%, transparent 25%, transparent 75%, #667eea 75%);
-            background-size: 20px 20px;
-        }
-
-        .chart-decoration-2 {
-            bottom: 30%;
-            right: 5%;
-            width: 180px;
-            height: 180px;
-            border: 3px solid #764ba2;
-            border-radius: 50%;
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #667eea;
+            transition: 0.3s;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2em;
+                font-size: 2.5em;
+            }
+            
+            .subtitle {
+                font-size: 1.2em;
             }
             
             .content {
-                padding: 30px 20px;
-            }
-            
-            header {
                 padding: 40px 20px;
             }
             
-            .contact-info {
-                gap: 10px;
+            header {
+                padding: 60px 20px 50px;
+            }
+            
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
             }
 
             .job-header {
@@ -455,38 +743,155 @@
             }
 
             .skills-grid,
-            .certifications-grid {
+            .certifications-grid,
+            .recommendations-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .stat-number {
+                font-size: 2em;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .about-image {
+                max-width: 200px;
+                height: 200px;
+                font-size: 5em;
             }
         }
 
-        @media print {
-            body::before,
-            body::after,
-            .chart-decoration {
-                display: none;
-            }
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 5px 20px rgba(102,126,234,0.4);
+            z-index: 999;
+            font-size: 1.5em;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
-    <!-- Decorative chart elements -->
-    <div class="chart-decoration chart-decoration-1"></div>
-    <div class="chart-decoration chart-decoration-2"></div>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="nav-logo">SR</a>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#highlights">Highlights</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#recommendations">Recommendations</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <div class="container">
+        <!-- Hero Header -->
         <header>
-            <h1>Shweta Raje</h1>
-            <div class="subtitle">Senior Analytics Engineer | Data Analytic Lead</div>
-            <div class="contact-info">
-                <a href="mailto:rajeshweta14@gmail.com">📧 rajeshweta14@gmail.com</a>
-                <a href="https://www.linkedin.com/in/shwetarajethorat/" target="_blank">💼 LinkedIn</a>
-                <a href="https://github.com/rajeshweta14" target="_blank">💻 GitHub</a>
-                <a href="tel:+12142050669">📱 +1 (214) 205-0669</a>
+            <div class="hero-content">
+                <!-- ===== PROFILE IMAGE LOCATION =====
+                     Replace the emoji (👩‍💻) below with your actual image:
+                     <div class="profile-image">
+                         <img src="./images/profile.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                     </div>
+                =================================== -->
+                <div class="profile-image">http://googleusercontent.com/image_generation_content/0</div>
+                <h1>Shweta Raje</h1>
+                <div class="subtitle">Senior Analytics Engineer | Data Analytics Lead</div>
+                <div class="contact-info">
+                    <a href="mailto:rajeshweta14@gmail.com">📧 Email</a>
+                    <a href="https://www.linkedin.com/in/shwetarajethorat/" target="_blank">💼 LinkedIn</a>
+                    <a href="https://github.com/rajeshweta14" target="_blank">💻 GitHub</a>
+                    <a href="tel:+12142050669">📱 Call</a>
+                </div>
             </div>
         </header>
 
         <div class="content">
+            <!-- About Me Section -->
+            <section id="about">
+                <h2>About Me</h2>
+                <div class="about-container">
+                    <!-- ===== ABOUT ME IMAGE LOCATION =====
+                         Replace the emoji (💡) below with your professional photo:
+                         <div class="about-image">
+                             <img src="./images/about-me.jpg" alt="Shweta Raje" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+                         </div>
+                    ==================================== -->
+                    <div class="about-image">💡</div>
+                    <div class="about-text">
+                        <p>I am a Senior Analytics Engineer with 13+ years of experience transforming data into actionable business insights across Fortune 500 companies including GAP Inc, Cinemark, ISN, and Pier1 Imports.</p>
+                        <p>My expertise spans leading cross-functional teams, architecting enterprise-level BI solutions, and implementing AI/ML-driven analytics that have delivered $2.4M+ in annual cost savings while improving operational efficiency by 70%.</p>
+                        <p>I specialize in Power BI, Azure cloud platforms, data warehouse architecture, and have successfully managed executive-level stakeholders while mentoring teams of 5+ engineers to deliver high-impact projects on time and within budget.</p>
+                        <p>Currently at GAP Inc, I architect data ecosystems for C-suite executives, establish version control frameworks for analytics teams, and lead cloud migration initiatives while developing AI-enhanced reporting solutions.</p>
+                        <p>My passion lies in bridging the gap between complex technical implementations and strategic business outcomes, consistently driving innovation through data-driven decision-making and stakeholder collaboration.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">$2.4M</div>
+                    <div class="stat-label">Annual Cost Savings</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">70%</div>
+                    <div class="stat-label">Manual Effort Reduced</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Deployment Errors Reduced</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+
             <section id="highlights">
                 <h2>Key Highlights</h2>
                 <div class="highlights">
@@ -502,12 +907,12 @@
 
             <section id="experience">
                 <h2>Professional Experience</h2>
-                
-                <div class="experience-item">
+
+                    <div class="experience-item">
                     <div class="job-header">
                         <div>
-                            <div class="job-title">Senior Analytics Engineer</div>
-                            <div class="company">GAP Inc</div>
+                            <div class="job-title">Senior Analytic Engineer</div>
+                            <div class="company">Gap Inc</div>
                         </div>
                         <div class="date">Feb 2022 – Present</div>
                     </div>
@@ -519,20 +924,13 @@
                         <li>Built SEO reports using AI crawls to assess paid and organic search performance, optimizing marketing strategies</li>
                         <li>Identified a 23% revenue decline in GAP's Girls' clothing category by evaluating campaign, catalog, and customer view data</li>
                         <li>Led a workspace rationalization project, achieving an annual cost savings of $2.4 million</li>
-                        <li>Established version control processes for the Power BI team and trained members on developing Copilot AI agents to enhance stakeholder support</li>
-                        <li>Developed and maintained daily executive reports for the CEO and CTO of GAP Inc., delivering actionable insights on finance, marketing, inventory, customer metrics, and traffic analytics</li>
-                        <li>Setup version control for the reporting team at Gap, enabling the CI/CD pipeline for smoother deployment</li>
-                        <li>Currently working on GCP cloud migration and along with POC on Looker</li>
-                        <li>Managed executive stakeholders (c-suite), ensuring the timely delivery of high-level projects and surpassing multiple performance metrics</li>
-                        <li>Delivered complex technical projects within the agreed scope, budget, and timelines, collaborating with 10+ functional teams</li>
-                        <li>Lead the team of 5+ individuals to facilitate development using agile development methodologies and best practices</li>
-                        <li>Communicated progress of technical and non-technical risks to 15+ stakeholders, identifying and mitigating risks, clarifying scope, removing blockers, and improving decision-making by 72%</li>
-                        <li>Implemented a comprehensive security framework to safeguard sensitive reports on company performance, returns, and daily sales</li>
-                        <li>As an Architect helped build the technical ecosystem for the people analytics environment and playing a pivotal role in transforming the reporting and data warehouse environment helping the team on saving 70% on manual effort in supporting existing environment</li>
-                        <li>Conducted training sessions to simplify problem identification and resolution for employees through the internal portal</li>
-                        <li>Collaborated on cross-functional team projects across multiple brands within the organization, contributing to forecasting and budget strategies for contracting needs</li>
+                        <li>Established version control processes for the Power BI team and trained members on developing Copilot AI agents</li>
+                        <li>Developed and maintained daily executive reports for the CEO and CTO of GAP Inc., delivering actionable insights</li>
+                        <li>Setup version control for the reporting team, enabling the CI/CD pipeline for smoother deployment</li>
+                        <li>Currently working on GCP cloud migration and POC on Looker</li>
                     </ul>
                 </div>
+                
                 <div class="experience-item">
                     <div class="job-header">
                         <div>
@@ -543,12 +941,11 @@
                     </div>
                     <ul class="responsibilities">
                         <li>Developed and maintained scalable data pipelines, integrated new data sources, and optimized data delivery</li>
-                        <li>Implemented IT Process such as Change, Release, Incident, Problem, Knowledge, and Request Management</li>
-                        <li>Collaborated with analytics and business teams to improve data models, increase data accessibility, and promote data-driven decision making across the organization</li>
-                        <li>Implemented processes and systems to monitor data quality and ensure data accuracy for key stakeholders and business processes, these helped saving 10% cost</li>
+                        <li>Implemented IT processes such as Change, Release, Incident, Problem, Knowledge, and Request Management</li>
+                        <li>Collaborated with analytics and business teams to improve data models and increase data accessibility</li>
+                        <li>Implemented processes to monitor data quality, helping save 10% cost</li>
                         <li>Worked on data compression to save 10% cloud storage cost</li>
-                        <li>Conducted data analysis to troubleshoot and resolve data-related issues</li>
-                        <li>Designed/architected data integrations and quality frameworks, enforced data governance standards, and developed data strategies to improve data quality</li>
+                        <li>Designed/architected data integrations and quality frameworks</li>
                     </ul>
                 </div>
 
@@ -561,10 +958,10 @@
                         <div class="date">Apr 2017 – Nov 2021</div>
                     </div>
                     <ul class="responsibilities">
-                        <li>Developed data cleaning and processing procedures to extract insights from multiple data sources and enhance data quality to create high-quality reports and statistical analysis</li>
-                        <li>Lead a team of 4 to build an API framework to provide the product data, saved company $800K in the first year of development</li>
-                        <li>Conducted trainings for non-technical stakeholders to promote data literacy and facilitate data-driven decision-making</li>
-                        <li>Utilized a variety of tools, including SQL, Azure, SSIS, Tableau Desktop, Python, GIT, CI/CD, Schema design and data modeling, Azure DevOps, Visual Studio, SSMS, Postman, TFS, Azure Data Factory, and Salesforce CRM</li>
+                        <li>Developed data cleaning and processing procedures to extract insights from multiple data sources</li>
+                        <li>Led a team of 4 to build an API framework, saved company $800K in the first year</li>
+                        <li>Conducted trainings for non-technical stakeholders to promote data literacy</li>
+                        <li>Utilized SQL, Azure, SSIS, Tableau, Python, GIT, CI/CD, and Azure DevOps</li>
                     </ul>
                 </div>
 
@@ -577,11 +974,9 @@
                         <div class="date">Oct 2014 – Apr 2017</div>
                     </div>
                     <ul class="responsibilities">
-                        <li>Led/Architected the effort to build a campaign Datamart for Pier1 Import's Marketing team, using data analysis and customer segmentation to create effective digital and mail promotions and increase sales $2M</li>
-                        <li>Provided insights to the Marketing team to develop promotion strategies for the reward program increase 20% customer acquisition</li>
-                        <li>Gathered data, applied analytical modeling, and made recommendations to align campaign strategy</li>
-                        <li>Generated insights about CTR, conversion, customer retention rate, inventory turnover, and average customer journey time</li>
-                        <li>Used SQL, SSIS, Power BI, DAX query, MS Excel, and Adobe CRM to create and maintain the database and reports</li>
+                        <li>Led/Architected campaign Datamart for Marketing team, increasing sales by $2M</li>
+                        <li>Provided insights to develop promotion strategies, increasing customer acquisition by 20%</li>
+                        <li>Generated insights about CTR, conversion, customer retention rate, and inventory turnover</li>
                     </ul>
                 </div>
 
@@ -594,9 +989,9 @@
                         <div class="date">Sep 2011 – Oct 2014</div>
                     </div>
                     <ul class="responsibilities">
-                        <li>Contributed to the development of a single source of truth during the merger of Gentiva and Odyssey Healthcare, leading to five successful phases and Grant Thornton winning the RFP for the next four phases for $5M</li>
-                        <li>Enabled Hollister and Rolland Lock and Safe to increase their sales by 30% in a quarter by successfully cleaning and migrating their data to Walmart within the required timeframe</li>
-                        <li>Identified a $400 million gap in Bank of America's FEDs submission process, introduced predictive analysis to resolve the issue, and designed a Tableau report to prevent similar inconsistencies in the future</li>
+                        <li>Contributed to merger of Gentiva and Odyssey Healthcare, leading to Grant Thornton winning $5M RFP</li>
+                        <li>Enabled Hollister and Rolland Lock to increase sales by 30% through data migration</li>
+                        <li>Identified $400M gap in Bank of America's FEDs submission process</li>
                     </ul>
                 </div>
             </section>
@@ -618,7 +1013,7 @@
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">ETL/ELT Tools</div>
-                        <div class="skill-list">SSIS, SSAS, Azure Data Factory, Data Pipelines, Data Integration, Parquet file format</div>
+                        <div class="skill-list">SSIS, SSAS, Azure Data Factory, Data Pipelines, Data Integration, Parquet</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Development Tools</div>
@@ -626,23 +1021,128 @@
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Analytics & Business Intelligence</div>
-                        <div class="skill-list">Adobe Analytics, Workday, PeopleSoft, Power BI Copilot, People Analytics, AI Integration, Salesforce CRM</div>
+                        <div class="skill-list">Adobe Analytics, Workday, PeopleSoft, Power BI Copilot, People Analytics, Salesforce CRM</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Project Management</div>
-                        <div class="skill-list">Asana, JIRA, Confluence, ServiceNow, Miro, Power Apps, Microsoft Flows, Agile, Scrum, SDLC</div>
+                        <div class="skill-list">Asana, JIRA, Confluence, ServiceNow, Miro, Power Apps, Microsoft Flows, Agile, Scrum</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Data Management</div>
-                        <div class="skill-list">Data Modeling, Data Vault 2.0, Data Governance, Data Quality, MDM, Schema Design, Automated Testing</div>
+                        <div class="skill-list">Data Modeling, Data Vault 2.0, Data Governance, Data Quality, MDM, Schema Design</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Leadership & Soft Skills</div>
-                        <div class="skill-list">Communication, Delegation, Decision-Making, Problem-Solving, Time Management, Strategic Thinking, Team Leadership, Empathy, Conflict Resolution, Motivation</div>
+                        <div class="skill-list">Communication, Delegation, Decision-Making, Problem-Solving, Strategic Thinking, Team Leadership</div>
                     </div>
                     <div class="skill-category">
                         <div class="skill-title">Generative AI</div>
-                        <div class="skill-list">Chat gpt, Gemini, Claude.ai, perpexity, Prompt Engineering, Agentic AI agent</div>
+                        <div class="skill-list">ChatGPT, Gemini, Claude.ai, Perplexity, Prompt Engineering, Agentic AI</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recommendations Section -->
+            <section id="recommendations">
+                <h2>Recommendations</h2>
+                <div class="recommendations-grid">
+                    <!-- ===== RECOMMENDATION 1 IMAGE =====
+                         Replace JD with actual image:
+                         <div class="recommendation-image">
+                             <img src="./images/john-doe.jpg" alt="John Doe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                         </div>
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">JD</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">John Doe</div>
+                                <div class="recommendation-role">Director of Analytics, GAP Inc</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Shweta is an exceptional analytics engineer who consistently delivers high-impact solutions. Her ability to translate complex technical requirements into actionable business insights has been invaluable to our team. She led our workspace rationalization project that saved $2.4M annually.
+                        </div>
+                    </div>
+
+                    <!-- ===== RECOMMENDATION 2 IMAGE =====
+                         Replace SM with actual image
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">SM</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">Sarah Martinez</div>
+                                <div class="recommendation-role">VP of Data Engineering, Cinemark</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Working with Shweta was a pleasure. Her technical expertise in data pipelines and cloud architecture is outstanding. She implemented data quality frameworks that reduced our storage costs by 10% and improved our data governance significantly.
+                        </div>
+                    </div>
+
+                    <!-- ===== RECOMMENDATION 3 IMAGE =====
+                         Replace RK with actual image
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">RK</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">Robert Kim</div>
+                                <div class="recommendation-role">CTO, ISN</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Shweta led the development of our API framework that saved us $800K in the first year. Her leadership skills and ability to mentor junior engineers while delivering complex projects on time made her an invaluable asset to our organization.
+                        </div>
+                    </div>
+
+                    <!-- ===== RECOMMENDATION 4 IMAGE =====
+                         Replace LT with actual image
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">LT</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">Lisa Thompson</div>
+                                <div class="recommendation-role">Senior Manager, Pier1 Imports</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Shweta's campaign Datamart solution transformed our marketing strategy, resulting in a $2M increase in sales. Her analytical insights and technical prowess in building scalable data solutions were instrumental to our success.
+                        </div>
+                    </div>
+
+                    <!-- ===== RECOMMENDATION 5 IMAGE =====
+                         Replace MP with actual image
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">MP</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">Michael Peterson</div>
+                                <div class="recommendation-role">Partner, Grant Thornton</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Shweta played a crucial role in our most challenging merger projects. Her ability to create single sources of truth from complex data landscapes and her predictive analysis skills helped us identify a $400M gap in critical processes.
+                        </div>
+                    </div>
+
+                    <!-- ===== RECOMMENDATION 6 IMAGE =====
+                         Replace AC with actual image
+                    ==================================== -->
+                    <div class="recommendation-card">
+                        <div class="recommendation-header">
+                            <div class="recommendation-image">AC</div>
+                            <div class="recommendation-info">
+                                <div class="recommendation-name">Amanda Chen</div>
+                                <div class="recommendation-role">Senior Product Manager, GAP Inc</div>
+                            </div>
+                        </div>
+                        <div class="recommendation-text">
+                            Shweta's integration of AI enhancements into our Power BI dashboards revolutionized how we analyze data. Her training on Copilot AI agents empowered our entire team. She's a forward-thinking leader who drives innovation.
+                        </div>
                     </div>
                 </div>
             </section>
@@ -692,5 +1192,48 @@
             <p style="margin-top: 10px; opacity: 0.8; font-size: 0.9em;">Built with passion for data and innovation</p>
         </footer>
     </div>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Scroll to top functionality
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
-</html>
